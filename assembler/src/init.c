@@ -101,12 +101,13 @@ public fn parse_file(_asmblr *a, bool struct_only, int cline)
 					if(!process_function(fnc, a->content, &n))
 						fsl_warning("Err to parse function!");
 
-/*					print("[Function Found] Symbol Name: '"), print(symbol), print("'\n");
+					print("[Function Found] Symbol Name: '"), print(symbol), print("'\n");
 					_printf("Args: %d | Types: ", (ptr)&fnc->arg_count);
 					for(int i = 0; i < fnc->arg_count; i++) {
 						i == fnc->arg_count - 1 ? print(fnc->arg_types[i]) : _printf("%s ",fnc->arg_types[i]);
 					}
-*/
+					println(NULL);
+
 					a->ast[a->ast_count++] = (ptr)fnc;
 					a->ast = reallocate(a->ast, sizeof(fn_t) * (a->ast_count + 1));
 					a->ast[a->ast_count] = NULL;
